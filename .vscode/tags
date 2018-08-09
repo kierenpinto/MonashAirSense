@@ -1,0 +1,157 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.9~svn20110310	//
+APP_ID	../AnySense_config.py	/^APP_ID = "AnySense_Harvard_TX"$/;"	kind:variable	line:18
+AnySense.py	../AnySense.py	1;"	kind:file	line:1
+AnySense_RTC.py	../AnySense_RTC.py	1;"	kind:file	line:1
+AnySense_config.py	../AnySense_config.py	1;"	kind:file	line:1
+CF_PM10_BYTE	../pm_g5t.py	/^CF_PM10_BYTE    = 8$/;"	kind:variable	line:14
+CF_PM1_BYTE	../pm_g5t.py	/^CF_PM1_BYTE     = 4$/;"	kind:variable	line:12
+CF_PM25_BYTE	../pm_g5t.py	/^CF_PM25_BYTE    = 6$/;"	kind:variable	line:13
+CHAR_PRELIM	../pm_g5t.py	/^CHAR_PRELIM     = 0x42$/;"	kind:variable	line:9
+CHECK_BYTE	../pm_g5t.py	/^CHECK_BYTE      = 30$/;"	kind:variable	line:11
+CO2_BYTE	../gas_co2_s8.py	/^CO2_BYTE = 9$/;"	kind:variable	line:8
+DELAY_HMODE	../light_bh1750fvi.py	/^DELAY_HMODE = 0.180  # 180ms in H-mode$/;"	kind:variable	line:8
+DELAY_LMODE	../light_bh1750fvi.py	/^DELAY_LMODE = 0.024  # 24ms in L-mode$/;"	kind:variable	line:9
+DEVICE	../AnySense_config.py	/^DEVICE = "LinkIt Smart 7688"$/;"	kind:variable	line:19
+DEVICE_ID	../AnySense_config.py	/^DEVICE_ID = "DEVICE_ID1234"$/;"	kind:variable	line:20
+DEVICE_ID	../AnySense_config.py	/^DEVICE_ID = mac.replace(':','')                                                                           $/;"	kind:variable	line:42
+DS3231_I2C_ADDR	../AnySense_RTC.py	/^DS3231_I2C_ADDR = 0x68$/;"	kind:variable	line:16
+DS3231_TIME_CAL_ADDR	../AnySense_RTC.py	/^DS3231_TIME_CAL_ADDR = 0x00$/;"	kind:variable	line:17
+Disp_Enabled	../AnySense_config.py	/^Disp_Enabled = False$/;"	kind:variable	line:14
+FS_SD	../AnySense_config.py	/^FS_SD = "\/mnt\/mmcblk0p1" #SD CARD LOCATION$/;"	kind:variable	line:29
+GPS_LAT	../AnySense_config.py	/^GPS_LAT = 25.1933$/;"	kind:variable	line:16
+GPS_LON	../AnySense_config.py	/^GPS_LON = 121.7870$/;"	kind:variable	line:17
+Gas_Sense_Enabled	../AnySense_config.py	/^Gas_Sense_Enabled = False$/;"	kind:variable	line:13
+Light_Sense_Enabled	../AnySense_config.py	/^Light_Sense_Enabled = False$/;"	kind:variable	line:12
+MQTT_broker	../AnySense_config.py	/^MQTT_broker = 'gpssensor.ddns.net'$/;"	kind:variable	line:22
+MQTT_interval	../AnySense_config.py	/^MQTT_interval = 60			# interval between every two MQTT messages (seconds)$/;"	kind:variable	line:25
+MQTT_port	../AnySense_config.py	/^MQTT_port = 1883                  $/;"	kind:variable	line:23
+MQTT_topic	../AnySense_config.py	/^MQTT_topic = 'LASS\/Test\/PM25\/AnySense'$/;"	kind:variable	line:24
+NUM_DATA_BYTE	../pm_g5t.py	/^NUM_DATA_BYTE   = 30$/;"	kind:variable	line:10
+NUM_INCOME_BYTE	../gas_co2_s8.py	/^NUM_INCOME_BYTE = 13$/;"	kind:variable	line:9
+NUM_INCOME_BYTE	../pm_g5t.py	/^NUM_INCOME_BYTE = 40$/;"	kind:variable	line:8
+OP_SINGLE_HRES1	../light_bh1750fvi.py	/^OP_SINGLE_HRES1 = 0x20$/;"	kind:variable	line:5
+OP_SINGLE_HRES2	../light_bh1750fvi.py	/^OP_SINGLE_HRES2 = 0x21$/;"	kind:variable	line:6
+OP_SINGLE_LRES	../light_bh1750fvi.py	/^OP_SINGLE_LRES = 0x23$/;"	kind:variable	line:7
+PM10_BYTE	../pm_g5t.py	/^PM10_BYTE       = 14$/;"	kind:variable	line:17
+PM1_BYTE	../pm_g5t.py	/^PM1_BYTE        = 10$/;"	kind:variable	line:15
+PM25_BYTE	../pm_g5t.py	/^PM25_BYTE       = 12$/;"	kind:variable	line:16
+Pm_Sense_Enabled	../AnySense_config.py	/^Pm_Sense_Enabled = True                          $/;"	kind:variable	line:10
+RH_BYTE	../pm_g5t.py	/^RH_BYTE		= 26$/;"	kind:variable	line:19
+Reboot_Time	../AnySense_config.py	/^Reboot_Time = 86400			# interval to reboot (seconds); 0 for no-rebooting$/;"	kind:variable	line:27
+S8_message	../gas_co2_s8.py	/^S8_message = b"\\xFE\\x04\\x00\\x00\\x00\\x04\\xE5\\xC6"$/;"	kind:variable	line:10
+TCS34725_ADDRESS	../light_tcs34725.py	/^TCS34725_ADDRESS 	= 0x29$/;"	kind:variable	line:5
+TCS34725_ATIME	../light_tcs34725.py	/^TCS34725_ATIME		= 0x01	# Integration time$/;"	kind:variable	line:13
+TCS34725_BDATAH	../light_tcs34725.py	/^TCS34725_BDATAH = 0x1B$/;"	kind:variable	line:34
+TCS34725_BDATAL	../light_tcs34725.py	/^TCS34725_BDATAL = 0x1A	# Blue channel data$/;"	kind:variable	line:33
+TCS34725_CDATAH	../light_tcs34725.py	/^TCS34725_CDATAH = 0x15$/;"	kind:variable	line:28
+TCS34725_CDATAL	../light_tcs34725.py	/^TCS34725_CDATAL	= 0x14	# Clear channel data$/;"	kind:variable	line:27
+TCS34725_COMMAND_BIT	../light_tcs34725.py	/^TCS34725_COMMAND_BIT 	= 0x80$/;"	kind:variable	line:7
+TCS34725_CONTROL	../light_tcs34725.py	/^TCS34725_CONTROL	= 0x0F	# Set the gain level for the sensor$/;"	kind:variable	line:12
+TCS34725_ENABLE	../light_tcs34725.py	/^TCS34725_ENABLE 	= 0x00$/;"	kind:variable	line:8
+TCS34725_ENABLE_AEN	../light_tcs34725.py	/^TCS34725_ENABLE_AEN	= 0x02	# RGBC Enable - Writing 1 actives the ADC, 0 disables it$/;"	kind:variable	line:10
+TCS34725_ENABLE_AIEN	../light_tcs34725.py	/^TCS34725_ENABLE_AIEN	= 0x10	# RGBC Interrupt Enable $/;"	kind:variable	line:11
+TCS34725_ENABLE_PON	../light_tcs34725.py	/^TCS34725_ENABLE_PON	= 0x01	# Power on - Writing 1 activates the internal oscillator, 0 disables it$/;"	kind:variable	line:9
+TCS34725_GAIN	../light_tcs34725.py	/^TCS34725_GAIN = 0x01    #\/**<  4x gain  *\/   => default$/;"	kind:variable	line:23
+TCS34725_GDATAH	../light_tcs34725.py	/^TCS34725_GDATAH = 0x19$/;"	kind:variable	line:32
+TCS34725_GDATAL	../light_tcs34725.py	/^TCS34725_GDATAL = 0x18	# Green channel data$/;"	kind:variable	line:31
+TCS34725_ID	../light_tcs34725.py	/^TCS34725_ID 		= 0x12	# 0x44 = TCS34721\/TCS34725, 0x4D = TCS34723\/TCS34727$/;"	kind:variable	line:6
+TCS34725_INTEGRATIONTIME	../light_tcs34725.py	/^TCS34725_INTEGRATIONTIME = 0x00  #  \/**<  700ms - 256 cycles - Max Count: 65535 *\/$/;"	kind:variable	line:20
+TCS34725_RDATAH	../light_tcs34725.py	/^TCS34725_RDATAH = 0x17$/;"	kind:variable	line:30
+TCS34725_RDATAL	../light_tcs34725.py	/^TCS34725_RDATAL = 0x16	# Red channel data$/;"	kind:variable	line:29
+TimeURL	../AnySense_RTC.py	/^TimeURL = "https:\/\/pm25.lass-net.org\/util\/timestamp.php"$/;"	kind:variable	line:14
+Tmp_BYTE	../pm_g5t.py	/^Tmp_BYTE       	= 24$/;"	kind:variable	line:18
+Tmp_Sense_Enabled	../AnySense_config.py	/^Tmp_Sense_Enabled = False$/;"	kind:variable	line:11
+__init__	../gas_co2_s8.py	/^	def __init__(self, q):$/;"	kind:member	line:13
+__init__	../gas_tvoc_sgp30.py	/^        def __init__(self,q):$/;"	kind:member	line:7
+__init__	../light_bh1750fvi.py	/^        def __init__(self,q):$/;"	kind:member	line:14
+__init__	../light_tcs34725.py	/^        def __init__(self,q):$/;"	kind:member	line:39
+__init__	../move_avge.py	/^	def __init__(self, bufmax):$/;"	kind:member	line:2
+__init__	../mqtt.py	/^	def __init__(self, MQTT_broker, MQTT_port, MQTT_topic,MQTT_auth):$/;"	kind:member	line:4
+__init__	../pm_g5t.py	/^	def __init__(self, q):$/;"	kind:member	line:22
+__init__	../th_htu21d.py	/^        def __init__(self,q):$/;"	kind:member	line:7
+__init__	../th_sht2x.py	/^        def __init__(self,q):$/;"	kind:member	line:7
+add	../move_avge.py	/^	def add(self, val):$/;"	kind:member	line:6
+bcd2dec	../AnySense_RTC.py	/^def bcd2dec(v):$/;"	kind:function	line:22
+checksum	../gas_co2_s8.py	/^	def checksum(self, dstr):$/;"	kind:member	line:33
+checksum	../pm_g5t.py	/^	def checksum(self, dstr):$/;"	kind:member	line:65
+command	../AnySense_RTC.py	/^		command = "date -u -s \\"" + t + "\\""$/;"	kind:variable	line:146
+command	../AnySense_RTC.py	/^		command = "date -u -s \\"" + t + "\\""$/;"	kind:variable	line:151
+crc_check	../th_htu21d.py	/^    	def crc_check(self, msb, lsb, crc):$/;"	kind:function	line:64
+data_log	../gas_co2_s8.py	/^	def data_log(self, dstr):$/;"	kind:member	line:24
+data_log	../pm_g5t.py	/^	def data_log(self, dstr):$/;"	kind:member	line:40
+dec2bcd	../AnySense_RTC.py	/^def dec2bcd(v):$/;"	kind:function	line:19
+delay	../AnySense_RTC.py	/^	delay = main(sys.argv[1:])$/;"	kind:variable	line:135
+display_data	../AnySense.py	/^def display_data(disp):$/;"	kind:function	line:41
+fields	../AnySense.py	/^fields = Conf.fields #Initiate shared variable$/;"	kind:variable	line:13
+fields	../AnySense_config.py	/^fields ={       "Tmp"   :       "s_t0",           $/;"	kind:variable	line:52
+float_re_pattern	../AnySense_config.py	/^float_re_pattern = re.compile("^-?\\d+\\.\\d+$")                                                                                               $/;"	kind:variable	line:38
+gas_co2_s8.py	../gas_co2_s8.py	1;"	kind:file	line:1
+gas_q	../AnySense_config.py	/^gas_q = Queue()  $/;"	kind:variable	line:47
+gas_tvoc_sgp30.py	../gas_tvoc_sgp30.py	1;"	kind:file	line:1
+get	../move_avge.py	/^	def get(self):$/;"	kind:member	line:12
+getIAQMeasure	../gas_tvoc_sgp30.py	/^        def getIAQMeasure(self):$/;"	kind:function	line:40
+getL	../light_bh1750fvi.py	/^        def getL(self, mode=OP_SINGLE_HRES1):$/;"	kind:function	line:35
+getRGBC	../light_tcs34725.py	/^        def getRGBC(self):$/;"	kind:function	line:96
+getRH	../th_htu21d.py	/^	def getRH(self):$/;"	kind:member	line:50
+getRH	../th_sht2x.py	/^	def getRH(self):$/;"	kind:member	line:47
+getT	../th_htu21d.py	/^        def getT(self):$/;"	kind:function	line:35
+getT	../th_sht2x.py	/^        def getT(self):$/;"	kind:function	line:35
+get_data	../gas_co2_s8.py	/^	def get_data(self):$/;"	kind:member	line:37
+get_data	../pm_g5t.py	/^	def get_data(self):$/;"	kind:member	line:77
+light_bh1750fvi.py	../light_bh1750fvi.py	1;"	kind:file	line:1
+light_q	../AnySense_config.py	/^light_q = Queue()                                                                                                                   $/;"	kind:variable	line:46
+light_tcs34725.py	../light_tcs34725.py	1;"	kind:file	line:1
+mac	../AnySense_config.py	/^mac = str(':'.join(['{:02x}'.format((uuid.getnode() >> i) & 0xff) for i in range(0,8*6,8)][::-1])).upper()$/;"	kind:variable	line:41
+main	../AnySense_RTC.py	/^def main(argv):$/;"	kind:function	line:112
+move_avg	../move_avge.py	/^class move_avg:$/;"	kind:class	line:1
+move_avge.py	../move_avge.py	1;"	kind:file	line:1
+mqtt	../mqtt.py	/^class mqtt:$/;"	kind:class	line:3
+mqtt.py	../mqtt.py	1;"	kind:file	line:1
+ntp_is_running	../AnySense_RTC.py	/^def ntp_is_running():$/;"	kind:function	line:65
+num_re_pattern	../AnySense_config.py	/^num_re_pattern = re.compile("^-?\\d+\\.\\d+$|^-?\\d+$")$/;"	kind:variable	line:39
+p	../gas_co2_s8.py	/^	p = sensor(q)$/;"	kind:variable	line:63
+p	../pm_g5t.py	/^	p = sensor(q)$/;"	kind:variable	line:117
+pm_g5t.py	../pm_g5t.py	1;"	kind:file	line:1
+pm_q	../AnySense_config.py	/^pm_q = Queue()                                                                                                                     $/;"	kind:variable	line:44
+pub	../mqtt.py	/^	def pub(self, data):$/;"	kind:member	line:9
+q	../gas_co2_s8.py	/^	q = Queue(maxsize=5)$/;"	kind:variable	line:62
+q	../gas_tvoc_sgp30.py	/^	q = Queue(maxsize=5)$/;"	kind:variable	line:64
+q	../light_bh1750fvi.py	/^	q = Queue(maxsize=5)$/;"	kind:variable	line:52
+q	../light_tcs34725.py	/^	q = Queue(maxsize=5)$/;"	kind:variable	line:148
+q	../pm_g5t.py	/^	q = Queue(maxsize=5) #Create a job queue$/;"	kind:variable	line:116
+q	../th_htu21d.py	/^	q = Queue(maxsize=5)$/;"	kind:variable	line:79
+q	../th_sht2x.py	/^	q = Queue(maxsize=5)$/;"	kind:variable	line:61
+reboot_system	../AnySense.py	/^def reboot_system():$/;"	kind:function	line:75
+rtc_get_time	../AnySense_RTC.py	/^def rtc_get_time():$/;"	kind:function	line:48
+rtc_set_time	../AnySense_RTC.py	/^def rtc_set_time(t):$/;"	kind:function	line:25
+run	../gas_co2_s8.py	/^	def run(self):$/;"	kind:member	line:43
+run	../gas_tvoc_sgp30.py	/^	def run(self):$/;"	kind:member	line:16
+run	../light_bh1750fvi.py	/^	def run(self):$/;"	kind:member	line:21
+run	../light_tcs34725.py	/^	def run(self):$/;"	kind:member	line:70
+run	../pm_g5t.py	/^	def run(self):$/;"	kind:member	line:99
+run	../th_htu21d.py	/^	def run(self):$/;"	kind:member	line:17
+run	../th_sht2x.py	/^	def run(self):$/;"	kind:member	line:16
+sensor	../gas_co2_s8.py	/^class sensor(Process):$/;"	kind:class	line:12
+sensor	../gas_tvoc_sgp30.py	/^class sensor(Process):$/;"	kind:class	line:6
+sensor	../light_bh1750fvi.py	/^class sensor(Process):$/;"	kind:class	line:11
+sensor	../light_tcs34725.py	/^class sensor(Process):$/;"	kind:class	line:36
+sensor	../pm_g5t.py	/^class sensor(Process):$/;"	kind:class	line:21
+sensor	../th_htu21d.py	/^class sensor(Process):$/;"	kind:class	line:6
+sensor	../th_sht2x.py	/^class sensor(Process):$/;"	kind:class	line:6
+set_key	../AnySense_RTC.py	/^def set_key(key):$/;"	kind:function	line:84
+t	../AnySense_RTC.py	/^		t = rtc_get_time()$/;"	kind:variable	line:149
+t	../AnySense_RTC.py	/^		t = t.strftime("%Y-%m-%d %H:%M:%S")$/;"	kind:variable	line:145
+t	../AnySense_RTC.py	/^		t = t.strftime("%Y-%m-%d %H:%M:%S")$/;"	kind:variable	line:150
+t	../AnySense_RTC.py	/^	t = rtc_get_time()$/;"	kind:variable	line:138
+th_htu21d.py	../th_htu21d.py	1;"	kind:file	line:1
+th_sht2x.py	../th_sht2x.py	1;"	kind:file	line:1
+tmp_q	../AnySense_config.py	/^tmp_q = Queue()                                                                                                                     $/;"	kind:variable	line:45
+tvoc_q	../AnySense_config.py	/^tvoc_q = Queue()$/;"	kind:variable	line:48
+upload_data	../AnySense.py	/^def upload_data():$/;"	kind:function	line:16
+values	../AnySense.py	/^values = Conf.values #Initiate shared variable$/;"	kind:variable	line:14
+values	../AnySense_config.py	/^values = {      "app"           :       APP_ID,      $/;"	kind:variable	line:61

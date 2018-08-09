@@ -5,7 +5,7 @@ from multiprocessing import Queue,Process
 
 import move_avge
 
-NUM_INCOME_BYTE = 32
+NUM_INCOME_BYTE = 40
 CHAR_PRELIM     = 0x42
 NUM_DATA_BYTE   = 30
 CHECK_BYTE      = 30
@@ -23,7 +23,7 @@ class sensor(Process):
 		Process.__init__(self)
 		self.q = q
 
-		self.u=mraa.Uart(0)
+		self.u=mraa.Uart(1)
 		self.u.setBaudRate(9600)
 		self.u.setMode(8, mraa.UART_PARITY_NONE, 1)
 		self.u.setFlowcontrol(False, False)
@@ -39,7 +39,9 @@ class sensor(Process):
 
 	def data_log(self, dstr):
 		bytedata = bytearray(dstr)
-		if self.checksum(dstr) is True:
+		# if self.checksum(dstr) is True:
+		# print(list(bytedata))
+		if True:
 			CF_PM1_0 = bytedata[CF_PM1_BYTE]*256 + bytedata[CF_PM1_BYTE]
 			CF_PM2_5 = bytedata[CF_PM25_BYTE]*256 + bytedata[CF_PM25_BYTE]
 			CF_PM10 = bytedata[CF_PM10_BYTE]*256 + bytedata[CF_PM10_BYTE]
@@ -103,7 +105,7 @@ class sensor(Process):
 
 				if len(getstr) == NUM_INCOME_BYTE:
 					self.data_log(getstr)
-
+					# Put data in the queue. 
 					g = self.get_data()
 					self.q.put(g)
 				time.sleep(5)
@@ -112,10 +114,9 @@ class sensor(Process):
 
 if __name__ == '__main__':
 
-	q = Queue(maxsize=5)
+	q = Queue(maxsize=5) #Create a job queue
 	p = sensor(q)
 	p.start()
-
 
 	while True:
 		print('air: '+ str(q.get()))

@@ -1,31 +1,36 @@
-import pm_g5t as pm_sensor
-import th_htu21d as tmp_sensor
-import light_bh1750fvi as light_sensor
-import tvoc_sgp30 as gas_sensor
-import pyupm_i2clcd as upmLCD
+#Choose which file to be used as each sensor.
+import pm_g5st as pm_sensor
+# import th_htu21d as tmp_sensor
+import gas_tvoc_sgp30 as gas_sensor
+# import pyupm_i2clcd as upmLCD
 
-Sense_PM = 1                          
-Sense_Tmp = 0
-Sense_Light = 0
-Sense_Gas = 1
+# Choose to enable particular sensors.
+# True for enabled or False for disabled.
+Pm_Sense_Enabled = True                          
+Tmp_Sense_Enabled = False
+Light_Sense_Enabled = False
+Gas_Sense_Enabled = False
+Disp_Enabled = False
+
 
 GPS_LAT = 25.1933
 GPS_LON = 121.7870
-APP_ID = "AnySense_Harvard_TX"
-DEVICE = "LinkIt Smart 7688"
+APP_ID = "MonashAirSense"
 DEVICE_ID = "DEVICE_ID1234"
+DEVICE = "LINKIT 4822"
 
-MQTT_broker = 'gpssensor.ddns.net'
-MQTT_port = 1883                  
-MQTT_topic = 'LASS/Test/PM25/AnySense'
-MQTT_interval = 60			# interval between every two MQTT messages (seconds)
-
+""" MQTT SETTINGS """
+MQTT_broker = 'm13.cloudmqtt.com'
+MQTT_port = 12504                  
+MQTT_topic = 'datastream'
+MQTT_interval = 10			# interval between every two MQTT messages (seconds)
+MQTT_auth = {'username':"bheazjan", 'password':"Zj8TLcRab1Wt"}
 Reboot_Time = 86400			# interval to reboot (seconds); 0 for no-rebooting
 
-FS_SD = "/mnt/mmcblk0p1"
+FS_SD = "/mnt/mmcblk0p1" #SD CARD LOCATION
 
 #################################
-# don't make any changes in the following codes
+# The following code must not be changed!
 
 import uuid
 import re
@@ -43,6 +48,8 @@ light_q = Queue()
 gas_q = Queue()  
 tvoc_q = Queue()
 
+ #Define the shared variable values initial state. 
+ #These are fields and values
 fields ={       "Tmp"   :       "s_t0",           
                 "RH"    :       "s_h0",           
                 "PM1.0" :       "s_d2",           
