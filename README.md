@@ -1,65 +1,58 @@
-This is the AnySense project for MediaTek LinkIt 7688 board. The project conducts sensing tasks and reports the results to the LASS backend database via either MQTT or Restful API. The project are based on MRAA library in Python, and hopefully it shall run smoothly on the other MRAA-supported platforms.
 
-## Sensors supported (till 2018/1/7)
-* Temperature and Humidity Sensor
-  * HTU21d (I2C)
-  * SHT2x (I2C)
-* Light Sensor
-  * BH1750FVI (I2C)
-  * TCS34725 (I2C)
+# Monash Air Sense Client
+This is the Monash Air Sense project, the client side application for real time detection of Air Quality metrics, that are subsequently reported to a central server at , the AnySense Server, via MQTT. Central to the operation of the project is MediaTek LinkIt 7688 board. 
+
+## Sensors supported (As of August 2018)
 * Particulate Matter Sensor
-  * Plantower PMS3003 (UART0)
-  * Plantower PMS5003 (UART0)
-  * Plantower PMS5003T (UART0)
-  * Plantower PMS7003 (UART0)
-  * Plantower PMSA003 (UART0)
+  * Plantower PMS5003ST (UART0)
 * Gas Sensor
   * SenseAir S8 (UART1)
   * Sensirion SGP30 (I2C)
 * RTC: real time clock
   * DS3231 (I2C)
+
+## Dependancies:
+* Python 2.7.X- Python 3 will be supported in the future.
+  * To check use python --version
+* MRAA Python Library, included in the LinkIt 7688 board, but may also work with other       MRAA-supported platforms.
+* Paho MQTT,a python library for communication over MQTT (Message Queuing Telemetry Transport).
  
 ## How to run this program?
-Please login you development board, and change to your working directory. Then, please follow the following steps:
+Login you development board, and change (`cd`) to your working directory.
 
-1. Use the coommand to get the latest version of the codes: 
+1. Clone the latest version of the code repository: 
    ```
-   git clone https://github.com/cclljj/AnySense_7688
+   git clone URL...
    ```
 
-2. Install phao library by the command (optional, only needed if you want to use MQTT for data transmission)
+2. Install paho library using the pip package manager.
    ```
    pip install paho-mqtt
    ```
    
-3. Edit the file AnySense_config.py and change the configureations
-   * Sense_PM: Enable PM sensor (1) or Not (0)
-   * Sense_Tmp: Enable Temperature/Humidity sensor (1) or Not (0)
-   * Sense_Light: Enable Light sensor (1) or Not (0)
-   * Sense_Gas: Enable Gas sensor (1) or Not (0)
-   * Use_RTC_DS3231: Enable RTC (DS3231) (1) or Not (0)
-   ***
-   * import xxx as pm_sensor: Change xxx to the corresponding module (or leave it unchanged if you don't need a PM sensor)
-   * import xxx as tmp_sensor: Change xxx to the corresponding module (or leave it unchanged if you don't need a Temperature/Humidity sensor)
-   * import xxx as light_sensor: Change xxx to the corresponding module (or leave it unchanged if you don't need a light sensor)
-   * import xxx as gas_sensor: Change xxx to the corresponding module (or leave it unchanged if you don't need a gas sensor)
+3. Edit the file MonashAirSense_config.py to configure the system. You can enable and disable various features. Use either `True` or `False` boolean values to enable or disable respectively. 
+   * Sense_PM: Enable PM sensor
+   * Sense_Tmp: Enable Temperature/Humidity sensor 
+   * Sense_Light: Enable Light sensor
+   * Sense_Gas: Enable Gas sensor
+   * Use_RTC_DS3231: Enable RTC (DS3231)
    ***
+   * The import statements can be used to choose which module to use specific to each sensor. This is unlikely to be changed. 
+      * import xxx as yyy: Change xxx to the corresponding module (or leave it unchanged if you don't need a PM sensor)
+    ***
    * GPS coordinates: including GPS_LAT and GPS_LON
-   * LASS settings: including APP_ID, DEVICE, and DEVICE_ID
-   * MQTT settings: including MQTT_broker, MQTT_port, MQTT_topic, and MQTT_interval
+   * MQTT settings: including MQTT_broker, MQTT_port, MQTT_topic, MQTT_auth and MQTT_interval
    * Restful settings: including Restful_URL and Restful_interval
    
 4. Run the main program by
    ```
-   python AnySense.py
+   python MonashAirSense.py
    ```
+   <br/>
+   Instructions will be available to add this as a service in the future. 
 
 5. You can check the results on the console printouts or on the MQTT broker.
 
-## Applications
 
-The existing applications (so far) are listed on the [wiki](https://github.com/cclljj/AnySense_7688/wiki) page
-
-## Acknowledgement
-
-The project was inspired by Spark Lee's Linkit7688_PM2.5 project (https://github.com/future/Linkit7688_PM2.5). We also thank Ming-Wei Cheng (a.k.a. A-Hai) for his technical advices and anonymous users for their valueable feedbacks.
+## Acknowledgements
+This project was forked and modified from the [AnySense Project](https://github.com/cclljj/AnySense_7688)

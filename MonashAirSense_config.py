@@ -27,7 +27,7 @@ MQTT_interval = 10			# interval between every two MQTT messages (seconds)
 MQTT_auth = {'username':"bheazjan", 'password':"Zj8TLcRab1Wt"}
 Reboot_Time = 86400			# interval to reboot (seconds); 0 for no-rebooting
 
-FS_SD = "/mnt/mmcblk0p1" #SD CARD LOCATION
+FS_SD = "/mnt/mmcblk0p1" #SD CARD LOCATION- Note this may be deprecated
 
 #################################
 # The following code must not be changed!

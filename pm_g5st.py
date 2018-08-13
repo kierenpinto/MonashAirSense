@@ -15,8 +15,9 @@ CF_PM10_BYTE    = 8
 PM1_BYTE        = 10
 PM25_BYTE       = 12
 PM10_BYTE       = 14
-Tmp_BYTE       	= 24
-RH_BYTE		= 26
+Tmp_BYTE       	= 30 #Temperature
+RH_BYTE		= 32 #Relative Humidity
+FMH_BYTE = 28 #Formaldehyde
 
 class sensor(Process):
 	def __init__(self, q):
@@ -35,21 +36,23 @@ class sensor(Process):
 		self.pm2_5_avg = move_avge.move_avg(1)		
 		self.pm10_avg = move_avge.move_avg(1)		
 		self.tmp_avg = move_avge.move_avg(1)		
-		self.rh_avg = move_avge.move_avg(1)		
+		self.rh_avg = move_avge.move_avg(1)
+		self.fmh_avg = move_avge.move_avg(1)		
 
 	def data_log(self, dstr):
 		bytedata = bytearray(dstr)
 		# if self.checksum(dstr) is True:
 		# print(list(bytedata))
 		if True:
-			CF_PM1_0 = bytedata[CF_PM1_BYTE]*256 + bytedata[CF_PM1_BYTE]
-			CF_PM2_5 = bytedata[CF_PM25_BYTE]*256 + bytedata[CF_PM25_BYTE]
-			CF_PM10 = bytedata[CF_PM10_BYTE]*256 + bytedata[CF_PM10_BYTE]
+			CF_PM1_0 = bytedata[CF_PM1_BYTE]*256 + bytedata[CF_PM1_BYTE+1]
+			CF_PM2_5 = bytedata[CF_PM25_BYTE]*256 + bytedata[CF_PM25_BYTE+1]
+			CF_PM10 = bytedata[CF_PM10_BYTE]*256 + bytedata[CF_PM10_BYTE+1]
 			PM1_0 = bytedata[PM1_BYTE]*256 + bytedata[PM1_BYTE+1]
 			PM2_5 = bytedata[PM25_BYTE]*256 + bytedata[PM25_BYTE+1]
 			PM10 = bytedata[PM10_BYTE]*256 + bytedata[PM10_BYTE+1]
 			Tmp = (bytedata[Tmp_BYTE]*256 + bytedata[Tmp_BYTE+1])/10.0
 			RH = (bytedata[RH_BYTE]*256 + bytedata[RH_BYTE+1])/10.0
+			FMH = bytedata[FMH_BYTE]*256 + bytedata[FMH_BYTE]
 	
 			self.cfpm1_0_avg.add(CF_PM1_0)
 			self.cfpm2_5_avg.add(CF_PM2_5)
@@ -59,6 +62,7 @@ class sensor(Process):
 			self.pm10_avg.add(PM10)
 			self.tmp_avg.add(Tmp)
 			self.rh_avg.add(RH)
+			self.fmh_avg.add(FMH)
 		else:
 			return
 
@@ -84,6 +88,7 @@ class sensor(Process):
 		PM10 = self.pm10_avg.get()
 		Tmp = self.tmp_avg.get()
 		RH = self.rh_avg.get()
+		FMH = self.fmh_avg.get()
 
 		ret = {	'CFPM1.0': CF_PM1_0,
 			'CFPM2.5': CF_PM2_5,
@@ -92,7 +97,8 @@ class sensor(Process):
 			'PM2.5': PM2_5,
 			'PM10': PM10,
 			'Tmp': Tmp,
-			'RH': RH
+			'RH': RH,
+			'FMH': FMH,
 			}
 
 		return ret

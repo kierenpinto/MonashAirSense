@@ -3,7 +3,8 @@ import mqtt
 import time
 import string
 import os
-
+import json
+from reports import Report
 from threading import Timer
 from datetime import datetime
 
@@ -12,6 +13,8 @@ import MonashAirSense_config as Conf
 
 fields = Conf.fields #Initiate shared variable
 values = Conf.values #Initiate shared variable
+timestamp = datetime.utcnow().strftime("%Y-%m-%d %H:%M:%S")
+local_report = Report('/root',timestamp[0],timestamp[1])
 
 def upload_data():
 	#After upload_data is first run, it is run again at the specified interval
@@ -23,20 +26,13 @@ def upload_data():
 	values["device_id"] = Conf.DEVICE_ID
 	values["date"] = pairs[0] #Date
 	values["time"] = pairs[1] #Time
-	msg = ""
-	for item in values:
-		if Conf.num_re_pattern.match(str(values[item])):
-			msg = msg + "|" + item + "=" + str(values[item]) + ""
-		else:
-			tq = values[item]
-			tq = tq.replace('"','')
-			msg = msg + "|" + item + "=" + tq 
+	msg = json.dumps(values) #Convert to JSON for sending to server.
+	#Initiate and send MQTT
 	MQTT = mqtt.mqtt(Conf.MQTT_broker,Conf.MQTT_port,Conf.MQTT_topic + "/" + Conf.DEVICE_ID,Conf.MQTT_auth)
 	MQTT.pub(msg)
-
-	# with open(Conf.FS_SD + "/" + values["date"], "a") as f:
-	# 	f.write(msg + "\n")
-	# print msg
+	local_report.addEvent(values)
+	local_report.save()
+	print 'published and saved' + str(values) + str(msg)
 
 def display_data(disp):
 	Timer(5, display_data, {disp}).start()
@@ -89,10 +85,6 @@ if __name__ == '__main__':
 	# 	tmp = Conf.tmp_sensor.sensor(Conf.tmp_q)
 	# 	tmp.start()
 	# 	tmp_data = {'Tmp':0.0, 'RH':0}
-	# if Conf.Light_Sense_Enabled:
-	# 	light_data = '3'
-	# 	light = Conf.light_sensor.sensor(Conf.light_q)
-	# 	light.start()
 	# if Conf.Gas_Sense_Enabled:
 	# 	gas_data = '4'
 	# 	gas = Conf.gas_sensor.sensor(Conf.gas_q)
@@ -111,11 +103,11 @@ if __name__ == '__main__':
 
 	while True:
 		if Conf.Pm_Sense_Enabled and not Conf.pm_q.empty():
-			while not Conf.pm_q.empty():
+			while not Conf.pm_q.empty(): # This makes sure we're not behind in the queue.
 				pm_data = Conf.pm_q.get()
-			for item in pm_data:
-				if item in fields:
-					values[fields[item]] = pm_data[item]
+			for item in pm_data: #Goes through each piece of data output
+				if item in fields: #Checks if that item is in the specified list of fields
+					values[fields[item]] = pm_data[item] #Puts the value of that field into values
 					if Conf.float_re_pattern.match(str(values[fields[item]])):
 						values[fields[item]] = round(float(values[fields[item]]),2)
 				else:
@@ -129,17 +121,7 @@ if __name__ == '__main__':
 					if Conf.float_re_pattern.match(str(values[fields[item]])):
 						values[fields[item]] = round(float(values[fields[item]]),2)
                                 else:                                                                             
-                                        values[item] = tmp_data[item]
-		if Conf.Light_Sense_Enabled and not Conf.light_q.empty():
-			while not Conf.light_q.empty(): 
-				light_data = Conf.light_q.get()
-                        for item in light_data:                                                                 
-                                if item in fields:                                                                
-                                        values[fields[item]] = light_data[item]                                     
-					if Conf.float_re_pattern.match(str(values[fields[item]])):
-						values[fields[item]] = round(float(values[fields[item]]),2)
-                                else:                                                                             
-                                        values[item] = light_data[item]                                             
+                                        values[item] = tmp_data[item]                                          
 		if Conf.Gas_Sense_Enabled and not Conf.gas_q.empty():
 			while not Conf.gas_q.empty():
 				gas_data = Conf.gas_q.get()
