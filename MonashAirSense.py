@@ -26,13 +26,17 @@ def upload_data():
 	values["device_id"] = Conf.DEVICE_ID
 	values["date"] = pairs[0] #Date
 	values["time"] = pairs[1] #Time
+	values["timestamp"] = time.time()
 	msg = json.dumps(values) #Convert to JSON for sending to server.
 	#Initiate and send MQTT
 	MQTT = mqtt.mqtt(Conf.MQTT_broker,Conf.MQTT_port,Conf.MQTT_topic + "/" + Conf.DEVICE_ID,Conf.MQTT_auth)
 	MQTT.pub(msg)
 	local_report.addEvent(values)
 	local_report.save()
-	print 'published and saved' + str(values) + str(msg)
+	print 'published and saved'
+	if 's_d0' in values:
+		print 'data ' + str(values["s_d0"])
+
 
 def display_data(disp):
 	Timer(5, display_data, {disp}).start()

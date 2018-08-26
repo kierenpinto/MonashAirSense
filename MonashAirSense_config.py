@@ -1,7 +1,7 @@
 #Choose which file to be used as each sensor.
-import pm_g5st as pm_sensor
+from sensors import pm_g5st as pm_sensor
 # import th_htu21d as tmp_sensor
-import gas_tvoc_sgp30 as gas_sensor
+from sensors import gas_tvoc_sgp30 as gas_sensor
 # import pyupm_i2clcd as upmLCD
 
 # Choose to enable particular sensors.

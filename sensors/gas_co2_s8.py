@@ -3,7 +3,7 @@ import time
 
 from multiprocessing import Queue,Process
 
-import move_avge
+from sensor_utils.move_avge import move_avge
 
 CO2_BYTE = 9
 NUM_INCOME_BYTE = 13
