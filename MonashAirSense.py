@@ -8,7 +8,7 @@ from reports import Report
 from threading import Timer
 from datetime import datetime
 
-#import APP_Harvard_TX_config as Conf
+
 import MonashAirSense_config as Conf
 
 fields = Conf.fields #Initiate shared variable
@@ -75,7 +75,8 @@ def display_data(disp):
 def reboot_system():
 	os.system("reboot")
 
-if __name__ == '__main__':
+
+def main():
 	if Conf.Reboot_Time > 0:
 		Timer(Conf.Reboot_Time, reboot_system,()).start()
 
@@ -135,5 +136,7 @@ if __name__ == '__main__':
 					if Conf.float_re_pattern.match(str(values[fields[item]])):
 						values[fields[item]] = round(float(values[fields[item]]),2)
                                 else:                                                                             
-                                        values[item] = gas_data[item]                                             
+                                        values[item] = gas_data[item] 
+if __name__ == '__main__':
+        main()                                    
 

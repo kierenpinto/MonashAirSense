@@ -18,12 +18,13 @@ This is the Monash Air Sense project, the client side application for real time 
 * Paho MQTT,a python library for communication over MQTT (Message Queuing Telemetry Transport).
  
 ## How to run this program?
-Login you development board, and change (`cd`) to your working directory.
+Login to your development board, and change (`cd`) to your working directory.
 
 1. Clone the latest version of the code repository: 
    ```
-   git clone URL...
+   git clone https://github.com/kierenpinto/MonashAirSense.git
    ```
+   NOTE: It is important to do this in the /root/ directory of the MediaTek device running OpenWrt.
 
 2. Install paho library using the pip package manager.
    ```
@@ -49,10 +50,20 @@ Login you development board, and change (`cd`) to your working directory.
    python MonashAirSense.py
    ```
    <br/>
-   Instructions will be available to add this as a service in the future. 
+   It is important to place the MonashAirSense directory in the ' /root/ 'directory
+   <br/>
 
 5. You can check the results on the console printouts or on the MQTT broker.
 
+6. Start-up application. (Service) On OpenWrt linux machines follow these instructions.
+  <br/> Edit ```/etc/rc.local``` file in a text editor and add: 
+    ```
+    /root/MonashAirSense/RUN start
+    ```
+  <br/> For more information visit (https://docs.onion.io/omega2-docs/running-a-command-on-boot.html)
 
+### Note:
+<br/>
+The install.sh script will be completed in the future to streamline this process.
 ## Acknowledgements
 This project was forked and modified from the [AnySense Project](https://github.com/cclljj/AnySense_7688)
