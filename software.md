@@ -61,9 +61,7 @@ Login to your development board, and change (`cd`) to your working directory.
     /root/MonashAirSense/RUN start
     ```
   <br/> For more information visit (https://docs.onion.io/omega2-docs/running-a-command-on-boot.html)
-# Reset WiFi Authentication
-At some point you may have to put the device LinkIt 7688 from AP mode back to Station mode. To do this,
-first press the MCU button to restart the device. The WiFi light will come on, and stay on while the system boots. Once this has finished it will turn off and begin to flash. At this point, hold down the WiFi button for 5 seconds but less than 20 seconds. The devices should change to Station Mode and will be accesible directly on its own WiFi network. 
+ 
 ### Note:
 <br/>
 The install.sh script will be completed in the future to streamline this process.
