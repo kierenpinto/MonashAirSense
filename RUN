@@ -2,7 +2,7 @@
 # Air Sense Process
 # Change the next 3 lines to suit where you install your script and what you want to call it
 DIR=/root/MonashAirSense
-DAEMON=$DIR/MonashAirSense.py
+DAEMON="python $DIR/MonashAirSense.py"
 DAEMON_NAME=airsense
 
 # This next line determines what user the script runs as.
@@ -13,7 +13,8 @@ PIDFILE=/var/run/$DAEMON_NAME.pid
 
 do_start () {
     echo starting
-    start-stop-daemon -S -b -p $PIDFILE -m -u $DAEMON_USER -c $DAEMON_USER -a $DAEMON
+    start-stop-daemon -S -b -u $DAEMON_USER -n $DAEMON_NAME -p $PIDFILE -m -x $DAEMON
+    echo started
 }
 do_stop () {
     echo stopping
@@ -36,4 +37,4 @@ start(){
 stop(){
     do_stop
 }
-exit 0 
+exit 0
