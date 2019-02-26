@@ -19,6 +19,7 @@ do_start () {
 do_stop () {
     echo stopping
     start-stop-daemon -K -p $PIDFILE
+    killall python
 }
 start_service (){
     do_start
