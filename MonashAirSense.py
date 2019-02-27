@@ -105,8 +105,11 @@ def main():
 	values["s_t0"] = 0
 	values["s_h0"] = 0
 	# display_data(disp)
-
+	interval = Conf.updateInterval
+	start_time = 0
+	end_time = 0
 	while True:
+		start_time = time.time()
 		if Conf.Pm_Sense_Enabled and not Conf.pm_q.empty():
 			while not Conf.pm_q.empty(): # This makes sure we're not behind in the queue.
 				pm_data = Conf.pm_q.get()
@@ -136,7 +139,9 @@ def main():
 					if Conf.float_re_pattern.match(str(values[fields[item]])):
 						values[fields[item]] = round(float(values[fields[item]]),2)
                                 else:                                                                             
-                                        values[item] = gas_data[item] 
+                                        values[item] = gas_data[item]
+		end_time = time.time()
+		time.sleep(max(0,interval-(start_time-end_time)))
 if __name__ == '__main__':
         main()                                    
 

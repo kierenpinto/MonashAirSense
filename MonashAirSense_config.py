@@ -29,6 +29,9 @@ Reboot_Time = 86400			# interval to reboot (seconds); 0 for no-rebooting
 
 FS_SD = "/mnt/mmcblk0p1" #SD CARD LOCATION- Note this may be deprecated
 
+#Device Main Process Update Interval - to lower CPU usage and reduce overheating
+Main_Proc_Update_Interval = 1 #seconds
+
 #################################
 # The following code must not be changed!
 
