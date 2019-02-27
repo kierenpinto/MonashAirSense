@@ -57,9 +57,11 @@ Login to your development board, and change (`cd`) to your working directory.
 
 6. Start-up application. (Service) On OpenWrt linux machines follow these instructions.
   <br/> Edit ```/etc/rc.local``` file in a text editor and add:
+    <br/> ~~/root/MonashAirSense/RUN start~~
     ```
-    /root/MonashAirSense/RUN start
+    python /root/MonashAirSense/MonashAirSense.py &
     ```
+    
   <br/> For more information visit (https://docs.onion.io/omega2-docs/running-a-command-on-boot.html)
  
 ### Note:
