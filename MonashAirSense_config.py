@@ -66,7 +66,9 @@ values = {
                 "time"          :       "00:00:00",
                 "timestamp"     :       0                          
                 },
-        "PM" : 'null',
-	"GAS" : 'null',
-	"TMP" : 'null'
+        "payload":{
+                "PM" : 'null',
+                "GAS" : 'null',
+                "TMP" : 'null'
+                }
         }                      

@@ -108,7 +108,7 @@ def main():
 		if Conf.Pm_Sense_Enabled and not Conf.pm_q.empty():
 			while not Conf.pm_q.empty(): # This makes sure we're not behind in the queue.
 				pm_data = Conf.pm_q.get()
-			values["payload"]['PM']={}
+			values["payload"]['PM']=dict()
 			for item in pm_data: #Goes through each piece of data output
 				if Conf.float_re_pattern.match(str(pm_data[item])):
 					values["payload"]['PM'][str(item)]= round(float(pm_data[item]),2)
