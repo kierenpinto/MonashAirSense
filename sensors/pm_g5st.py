@@ -53,7 +53,7 @@ class sensor(Process):
 			Tmp = (bytedata[Tmp_BYTE]*256 + bytedata[Tmp_BYTE+1])/10.0
 			RH = (bytedata[RH_BYTE]*256 + bytedata[RH_BYTE+1])/10.0
 			FMH = bytedata[FMH_BYTE]*256 + bytedata[FMH_BYTE]
-			print PM2_5
+			#print PM2_5
 			self.cfpm1_0_avg.add(CF_PM1_0)
 			self.cfpm2_5_avg.add(CF_PM2_5)
 			self.cfpm10_avg.add(CF_PM10)

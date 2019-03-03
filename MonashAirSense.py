@@ -11,7 +11,7 @@ from datetime import datetime
 
 import MonashAirSense_config as Conf
 
-fields = Conf.fields #Initiate shared variable
+# fields = Conf.fields #Initiate shared variable
 values = Conf.values #Initiate shared variable
 timestamp = datetime.utcnow().strftime("%Y-%m-%d %H:%M:%S")
 local_report = Report('/root',timestamp[0],timestamp[1])
@@ -23,10 +23,9 @@ def upload_data():
 	#Formats and sends data over MQTT
 	timestamp = datetime.utcnow().strftime("%Y-%m-%d %H:%M:%S")
 	pairs = timestamp.split(" ")
-	values["device_id"] = Conf.DEVICE_ID
-	values["date"] = pairs[0] #Date
-	values["time"] = pairs[1] #Time
-	values["timestamp"] = time.time()
+	values["meta"]["date"] = pairs[0] #Date
+	values["meta"]["time"] = pairs[1] #Time
+	values["meta"]["timestamp"] = time.time()
 	msg = json.dumps(values) #Convert to JSON for sending to server.
 	#Initiate and send MQTT
 	MQTT = mqtt.mqtt(Conf.MQTT_broker,Conf.MQTT_port,Conf.MQTT_topic + "/" + Conf.DEVICE_ID,Conf.MQTT_auth)
@@ -99,9 +98,7 @@ def main():
 	# 	disp.clear()
 	print('upload first run')
 	upload_data()
-	values["payload"]["PM"] = 'null'
-	values["payload"]["GAS"] = 'null'
-	values["payload"]["TMP"] = 'null'
+
 	# display_data(disp)
 	interval = Conf.Main_Proc_Update_Interval
 	start_time = 0
@@ -112,10 +109,10 @@ def main():
 			while not Conf.pm_q.empty(): # This makes sure we're not behind in the queue.
 				pm_data = Conf.pm_q.get()
 			for item in pm_data: #Goes through each piece of data output
-				if Conf.float_re_pattern.match(str(pm_data[item]])):
-					values["payload"]['PM'][item]= round(float(pm_data[item]),2)
+				if Conf.float_re_pattern.match(str(pm_data[item])):
+					values["payload"]['PM'][str(item)]= round(float(pm_data[item]),2)
 				else:
-					values["payload"]['PM'][item] = pm_data[item]
+					values["payload"]['PM'][str(item)] = pm_data[item]
 		
 		# if Conf.Tmp_Sense_Enabled and not Conf.tmp_q.empty():
 		# 	while not Conf.tmp_q.empty():

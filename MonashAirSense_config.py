@@ -53,14 +53,20 @@ tvoc_q = Queue()
 
  #Define the shared variable values initial state. 
                                            
-values = {"meta":
-                {      "app"           :       APP_ID,
+values = {
+        "meta":
+                {
+                "app"           :       APP_ID,
                 "version"       :       "1.0.0", #App version
                 "device_id"     :       DEVICE_ID,                  
                 "device"        :       DEVICE,                                           
                 "gps_lat"       :       GPS_LAT,                    
                 "gps_lon"       :       GPS_LON,                     
                 "date"          :       "1900-01-01",                        
-                "time"          :       "00:00:00",                          
-                } 
+                "time"          :       "00:00:00",
+                "timestamp"     :       0                          
+                },
+        "PM" : {'null'},
+	"GAS" : {'null'},
+	"TMP" : {'null'}
         }                      
