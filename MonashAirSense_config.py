@@ -66,7 +66,7 @@ values = {
                 "time"          :       "00:00:00",
                 "timestamp"     :       0                          
                 },
-        "PM" : {'null'},
-	"GAS" : {'null'},
-	"TMP" : {'null'}
+        "PM" : 'null',
+	"GAS" : 'null',
+	"TMP" : 'null'
         }                      
