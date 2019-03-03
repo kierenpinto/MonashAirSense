@@ -105,7 +105,7 @@ def main():
 	values["s_t0"] = 0
 	values["s_h0"] = 0
 	# display_data(disp)
-	interval = Conf.updateInterval
+	interval = Conf.Main_Proc_Update_Interval
 	start_time = 0
 	end_time = 0
 	while True:

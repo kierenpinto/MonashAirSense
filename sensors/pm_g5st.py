@@ -106,7 +106,7 @@ class sensor(Process):
 	def run(self):
 		while True:
 			if self.u.dataAvailable():
-				time.sleep(0.05)
+				time.sleep(1)
 				getstr = self.u.readStr(NUM_INCOME_BYTE)
 
 				if len(getstr) == NUM_INCOME_BYTE:

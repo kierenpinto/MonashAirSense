@@ -53,26 +53,21 @@ tvoc_q = Queue()
 
  #Define the shared variable values initial state. 
  #These are fields and values
-fields ={       "Tmp"   :       "s_t0",           
-                "RH"    :       "s_h0",           
-                "PM1.0" :       "s_d2",           
-                "PM2.5" :       "s_d0",           
-                "PM10"  :       "s_d1",              
-                "Lux"   :       "s_l0",              
-                "CO2"   :       "s_g8",              
+fields ={       "Tmp"   :       "s_t0", # Temperature   
+                "RH"    :       "s_h0", # Relative humidity     
+                "PM1.0" :       "s_d2", # Particulate matter   
+                "PM2.5" :       "s_d0", # Particulate matter
+                "PM10"  :       "s_d1", # Particulate matter
+                "Lux"   :       "s_l0", # Light lux
+                "CO2"   :       "s_g8", # Carbon Dioxide  
 		"TVOC"	:	"s_gg",
         }                                            
-values = {      "app"           :       APP_ID,      
+values = {      "app"           :       APP_ID,
+                "version"       :       "1.0.0", #App version
                 "device_id"     :       DEVICE_ID,                  
-                "device"        :       DEVICE,                     
-                "ver_format"    :       "3",                        
-                "fmt_opt"       :       "0",                        
-                "ver_app"       :       "0.1",                      
+                "device"        :       DEVICE,                                           
                 "gps_lat"       :       GPS_LAT,                    
-                "gps_lon"       :       GPS_LON,                    
-                "FAKE_GPS"      :       "1",                        
-                "gps_fix"       :       "1",                        
-                "gps_num"       :       "100",                      
+                "gps_lon"       :       GPS_LON,                     
                 "date"          :       "1900-01-01",                        
                 "time"          :       "00:00:00",                          
         }                       
