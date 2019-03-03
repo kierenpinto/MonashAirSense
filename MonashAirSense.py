@@ -99,11 +99,9 @@ def main():
 	# 	disp.clear()
 	print('upload first run')
 	upload_data()
-
-	values["s_d0"] = 0
-	values["s_gg"] = 0
-	values["s_t0"] = 0
-	values["s_h0"] = 0
+	values["payload"]["PM"] = 'null'
+	values["payload"]["GAS"] = 'null'
+	values["payload"]["TMP"] = 'null'
 	# display_data(disp)
 	interval = Conf.Main_Proc_Update_Interval
 	start_time = 0
@@ -114,32 +112,31 @@ def main():
 			while not Conf.pm_q.empty(): # This makes sure we're not behind in the queue.
 				pm_data = Conf.pm_q.get()
 			for item in pm_data: #Goes through each piece of data output
-				if item in fields: #Checks if that item is in the specified list of fields
-					values[fields[item]] = pm_data[item] #Puts the value of that field into values
-					if Conf.float_re_pattern.match(str(values[fields[item]])):
-						values[fields[item]] = round(float(values[fields[item]]),2)
+				if Conf.float_re_pattern.match(str(pm_data[item]])):
+					values["payload"]['PM'][item]= round(float(pm_data[item]),2)
 				else:
-					values[item] = pm_data[item]
-		if Conf.Tmp_Sense_Enabled and not Conf.tmp_q.empty():
-			while not Conf.tmp_q.empty():
-				tmp_data = Conf.tmp_q.get()
-                        for item in tmp_data:                                                                 
-                                if item in fields:                                                                
-                                        values[fields[item]] = tmp_data[item]                                     
-					if Conf.float_re_pattern.match(str(values[fields[item]])):
-						values[fields[item]] = round(float(values[fields[item]]),2)
-                                else:                                                                             
-                                        values[item] = tmp_data[item]                                          
-		if Conf.Gas_Sense_Enabled and not Conf.gas_q.empty():
-			while not Conf.gas_q.empty():
-				gas_data = Conf.gas_q.get()
-                        for item in gas_data:                                                                 
-                                if item in fields:                                                                
-                                        values[fields[item]] = gas_data[item]                                     
-					if Conf.float_re_pattern.match(str(values[fields[item]])):
-						values[fields[item]] = round(float(values[fields[item]]),2)
-                                else:                                                                             
-                                        values[item] = gas_data[item]
+					values["payload"]['PM'][item] = pm_data[item]
+		
+		# if Conf.Tmp_Sense_Enabled and not Conf.tmp_q.empty():
+		# 	while not Conf.tmp_q.empty():
+		# 		tmp_data = Conf.tmp_q.get()
+                #         for item in tmp_data:                                                                 
+                #                 if item in fields:                                                                
+                #                         values[fields[item]] = tmp_data[item]                                     
+		# 			if Conf.float_re_pattern.match(str(values[fields[item]])):
+		# 				values[fields[item]] = round(float(values[fields[item]]),2)
+                #                 else:                                                                             
+                #                         values[item] = tmp_data[item]                                          
+		# if Conf.Gas_Sense_Enabled and not Conf.gas_q.empty():
+		# 	while not Conf.gas_q.empty():
+		# 		gas_data = Conf.gas_q.get()
+                #         for item in gas_data:                                                                 
+                #                 if item in fields:                                                                
+                #                         values[fields[item]] = gas_data[item]                                     
+		# 			if Conf.float_re_pattern.match(str(values[fields[item]])):
+		# 				values[fields[item]] = round(float(values[fields[item]]),2)
+                #                 else:                                                                             
+                #                         values[item] = gas_data[item]
 		end_time = time.time()
 		time.sleep(max(0,interval-(start_time-end_time)))
 if __name__ == '__main__':
